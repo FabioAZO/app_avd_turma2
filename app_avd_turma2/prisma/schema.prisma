@@ -1,0 +1,23 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model events {
+  id String @id @default(uuid())
+  event_name String
+  event_place String
+  event_city String
+  month_year_event Int
+  day_of_week String
+  event_show String
+
+  @@map ("events")
+}
